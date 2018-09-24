@@ -1,0 +1,17 @@
+<div *ngIf="tag">
+    <h2>{{tag.value| uppercase}} Details</h2>
+    <div><span>ID: </span>{{tag.id}}</div>
+    <div><span>VALUE: </span>{{tag.value}}</div>
+    <button (click)="goBack()">go back</button>
+</div>
+
+<h2>Books</h2>
+<div *ngIf="tag">
+  <ul>
+      <li *ngFor="let book of tag.bookSet">
+          <a href="http://localhost:4200/book/details/{{book.id}}">
+              <span>{{book.id}}</span> {{book.title}}
+          </a>
+      </li>
+  </ul>
+</div>

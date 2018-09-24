@@ -1,0 +1,18 @@
+<div *ngIf="author">
+    <h2>{{author.surname | uppercase}} Details</h2>
+    <div><span>ID: </span>{{author.id}}</div>
+    <div><span>FORNAME: </span>{{author.forname}}</div>
+    <div><span>SURNAME: </span>{{author.surname}}</div>
+    <button (click)="goBack()">go back</button>
+</div>
+
+<h2>Books</h2>
+<div *ngIf="author">
+  <ul>
+      <li *ngFor="let book of author.bookSet">
+          <a href="http://localhost:4200/book/details/{{book.id}}">
+              <span>{{book.id}}</span> {{book.title}}
+          </a>
+      </li>
+  </ul>
+</div>

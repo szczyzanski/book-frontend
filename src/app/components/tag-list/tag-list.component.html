@@ -1,0 +1,8 @@
+<h2>Tags</h2>
+<ul class="heroes">
+    <li *ngFor="let tag of tags">
+        <a routerLink="/tag/details/{{tag.id}}">
+            <span class="badge">{{tag.id}}</span> {{tag.value}}
+        </a>
+    </li>
+</ul>

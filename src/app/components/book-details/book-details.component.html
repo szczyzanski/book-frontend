@@ -1,0 +1,32 @@
+<div *ngIf="book">
+    <h2>{{book.title | uppercase}} Details</h2>
+    <div><span>ID: </span>{{book.id}}</div>
+    <div><span>TITLE: </span>{{book.title}}</div>
+    <div><span>ORIGINAL TITLE: </span>{{book.originalTitle}}</div>
+    <div><span>ORIGIN: </span>{{book.origin}}</div>
+    <div><span>ISBN: </span>{{book.isbn}}</div>
+    <button (click)="goBack()">go back</button>
+</div>
+
+<h2>Authors</h2>
+<ul>
+    <li *ngFor="let author of authors">
+        <a href="http://localhost:4200/author/details/{{author.id}}">
+            <span>{{author.id}}</span> {{author.forname}} {{author.surname}}
+        </a>
+    </li>
+</ul>
+
+<h2>Tags</h2>
+<ul>
+    <li *ngFor="let tag of tags">
+        <a href="http://localhost:4200/tag/details/{{tag.id}}">
+            <span>{{tag.id}}</span> {{tag.value}}
+        </a>
+    </li>
+</ul>
+
+<h2>Cover</h2>
+<div *ngIf="book">
+    <img src="../../../../covers/{{book.id}}/0.jpg" >
+</div>
