@@ -9,7 +9,7 @@
 <div *ngIf="tag">
   <ul>
       <li *ngFor="let book of tag.bookSet">
-          <a href="http://localhost:4200/book/details/{{book.id}}">
+          <a href="/book/details/{{book.id}}">
               <span>{{book.id}}</span> {{book.title}}
           </a>
       </li>

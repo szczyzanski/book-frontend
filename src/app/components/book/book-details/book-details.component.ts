@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Book } from '../../classes/book';
-import { Author } from '../../classes/author';
-import { Tag } from '../../classes/tag';
-import { BookService } from '../../services/book/book.service';
-import { AuthorService } from '../../services/author/author.service';
-import { TagService } from '../../services/tag/tag.service';
+import { Book } from '../../../classes/book';
+import { Author } from '../../../classes/author';
+import { Tag } from '../../../classes/tag';
+import { BookService } from '../../../services/book/book.service';
+import { AuthorService } from '../../../services/author/author.service';
+import { TagService } from '../../../services/tag/tag.service';
 
 @Component({
   selector: 'app-book-details',
@@ -18,6 +18,7 @@ export class BookDetailsComponent implements OnInit {
   book: Book;
   authors: Author[];
   tags: Tag[];
+  images: String[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -29,7 +30,6 @@ export class BookDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.getDetails();
-    console.log(this.route.snapshot);
   }
 
   getDetails(): void {
@@ -40,6 +40,18 @@ export class BookDetailsComponent implements OnInit {
       .subscribe(authors => this.authors = authors);
     this.tagService.getTagsByBookId(id)
       .subscribe(tags => this.tags = tags);
+    this.getCovers(id);
+  }
+
+  getCovers(id: number): void {
+    const service = this.bookService.getServiceUrl();
+    this.bookService.getNoOfCoversById(id)
+      .subscribe(value => {
+        for(var i=0;i<value;i++) {
+          this.images[i] = (service + id.toString() + '&' +  i.toString());
+        }
+        //console.log(this.images);
+      });
   }
 
   goBack(): void { 

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Author } from '../../classes/author';
-import { AuthorService } from '../../services/author/author.service';
+import { Author } from '../../../classes/author';
+import { AuthorService } from '../../../services/author/author.service';
 
 @Component({
   selector: 'app-author-details',

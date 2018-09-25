@@ -1,0 +1,46 @@
+<h1>BOOK ADDER</h1>
+<h2>Book</h2>
+<div>
+  <label>ISBN:
+    <input [(ngModel)]="book.isbn" placeholder="ISBN">
+  </label>
+</div>
+<div>
+    <label>TITLE:
+      <input [(ngModel)]="book.title" placeholder="Title">
+    </label>
+</div>
+<div>
+    <label>PAGES:
+      <input [(ngModel)]="book.noOfPages" placeholder="Number of pages">
+    </label>
+</div>
+<div>
+    <label>ORIGINAL TITLE:
+      <input [(ngModel)]="book.originalTitle" placeholder="Original title">
+    </label>
+</div>
+<div>
+    <label>ORIGIN:
+      <input [(ngModel)]="book.origin" placeholder="Origin">
+    </label>
+</div>
+<h2>Authors</h2>
+<div>
+    <label>FORNAME:
+      <input [(ngModel)]="author.forname" placeholder="Forname">
+    </label>
+    <label>SURNAME:
+        <input [(ngModel)]="author.surname" placeholder="Surname">
+      </label>
+</div>
+<h2>Tags</h2>
+<div>
+    <label>VALUE:
+        <input [(ngModel)]="tag.value" placeholder="Value">
+      </label>
+</div>
+<br/>
+<div><button (click)="printBook()">printuj ksionszke</button></div>
+<div><button (click)="printAuthor()">printuj autora</button></div>
+<div><button (click)="printTag()">printuj tag</button></div>

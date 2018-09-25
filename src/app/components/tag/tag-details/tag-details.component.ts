@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Tag } from '../../classes/tag';
-import { TagService } from '../../services/tag/tag.service';
+import { Tag } from '../../../classes/tag';
+import { TagService } from '../../../services/tag/tag.service';
 
 @Component({
   selector: 'app-tag-details',

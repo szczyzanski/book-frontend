@@ -1,4 +1,5 @@
 <div *ngIf="book">
+    <a href="/book/details/{{book.id + 1}}">Next</a>
     <h2>{{book.title | uppercase}} Details</h2>
     <div><span>ID: </span>{{book.id}}</div>
     <div><span>TITLE: </span>{{book.title}}</div>
@@ -11,7 +12,7 @@
 <h2>Authors</h2>
 <ul>
     <li *ngFor="let author of authors">
-        <a href="http://localhost:4200/author/details/{{author.id}}">
+        <a href="/author/details/{{author.id}}">
             <span>{{author.id}}</span> {{author.forname}} {{author.surname}}
         </a>
     </li>
@@ -20,7 +21,7 @@
 <h2>Tags</h2>
 <ul>
     <li *ngFor="let tag of tags">
-        <a href="http://localhost:4200/tag/details/{{tag.id}}">
+        <a href="/tag/details/{{tag.id}}">
             <span>{{tag.id}}</span> {{tag.value}}
         </a>
     </li>
@@ -28,5 +29,7 @@
 
 <h2>Cover</h2>
 <div *ngIf="book">
-    <img src="../../../../covers/{{book.id}}/0.jpg" >
+    <ul *ngFor="let image of images">
+        <img [src]="image">
+    </ul> 
 </div>

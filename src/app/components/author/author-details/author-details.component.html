@@ -10,7 +10,7 @@
 <div *ngIf="author">
   <ul>
       <li *ngFor="let book of author.bookSet">
-          <a href="http://localhost:4200/book/details/{{book.id}}">
+          <a routerLink="/book/details/{{book.id}}">
               <span>{{book.id}}</span> {{book.title}}
           </a>
       </li>

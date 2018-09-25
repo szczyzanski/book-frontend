@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 import { Book } from '../../classes/book'
@@ -24,5 +24,15 @@ export class BookService {
   getBookById(id: number): Observable<Book> {
     const url = this.serverUrl + this.serviceUrl + id;
     return this.http.get<Book>(url);
+  }
+
+  getNoOfCoversById(id: number): Observable<number> {
+    var noOfCovers;
+    const url = this.serverUrl + this.serviceUrl + 'cover/n/' + id;
+    return this.http.get<number>(url);
+  }
+
+  getServiceUrl(): String {
+    return this.serverUrl + this.serviceUrl + 'cover/';
   }
 }
