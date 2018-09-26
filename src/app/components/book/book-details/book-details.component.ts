@@ -50,7 +50,6 @@ export class BookDetailsComponent implements OnInit {
         for(var i=0;i<value;i++) {
           this.images[i] = (service + id.toString() + '&' +  i.toString());
         }
-        //console.log(this.images);
       });
   }
 

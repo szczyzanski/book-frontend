@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Book } from '../../../classes/book';
-import { Author } from '../../../classes/author';
-import { Tag } from '../../../classes/tag';
+import { BookWithFullInfo } from '../../../classes/bookWithFullInfo';
+import { BookService } from '../../../services/book/book.service';
 
 @Component({
   selector: 'app-book-adder',
@@ -11,42 +10,44 @@ import { Tag } from '../../../classes/tag';
 })
 export class BookAdderComponent implements OnInit {
 
-  book: Book = {
-    id: null,
-    isbn: null,
-    title: null,
-    noOfPages: null,
-    originalTitle: null,
-    origin: null
+  bookWithFullInfo: BookWithFullInfo = {
+      isbn: null,
+      title: null,
+      publisher: null,
+      noOfPages: null,
+      originalTitle: null,
+      origin: null,
+    authors: [{name: null}],
+    tags: [{value: null}]
   };
+  images: String[] = [];  
 
-  author: Author = {
-    id: null,
-    forname: null,
-    surname: null,
-    bookSet: null
-  };
-
-  tag: Tag = {
-    id: null,
-    value: null,
-    bookSet: null
-  }
-
-  constructor() { }
+  constructor(
+    private bookService: BookService,
+  ) { }
 
   ngOnInit() {
   }
 
-  printBook(): void {
-    console.log(this.book);
+  searchByIsbn(): void {
+    this.bookService.searchByIsbn(this.bookWithFullInfo.isbn)
+      .subscribe(book => {
+        this.bookWithFullInfo = book;
+        this.getCovers(0);
+      });
   }
 
-  printAuthor(): void {
-    console.log(this.author);
+  getCovers(id: number): void {
+    const service = this.bookService.getServiceUrl();
+    this.bookService.getNoOfCoversById(id)
+      .subscribe(value => {
+        for(var i=0;i<value;i++) {
+          this.images[i] = (service + id.toString() + '&' +  i.toString());
+        }
+      });
   }
 
-  printTag(): void {
-    console.log(this.tag);
+  saveInDB(): void {
+    this.bookService.putInDB(this.bookWithFullInfo);
   }
 }

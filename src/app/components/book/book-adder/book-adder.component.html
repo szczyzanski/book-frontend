@@ -2,45 +2,54 @@
 <h2>Book</h2>
 <div>
   <label>ISBN:
-    <input [(ngModel)]="book.isbn" placeholder="ISBN">
+    <input [(ngModel)]="bookWithFullInfo.isbn" placeholder="ISBN">
   </label>
+  <button (click)="searchByIsbn()">search</button>
+</div>
+ <div>
+    <label>TITLE:
+      <input [(ngModel)]="bookWithFullInfo.title" placeholder="Title">
+    </label>
 </div>
 <div>
-    <label>TITLE:
-      <input [(ngModel)]="book.title" placeholder="Title">
+    <label>PUBLISHER:
+      <input [(ngModel)]="bookWithFullInfo.publisher" placeholder="Publisher">
     </label>
 </div>
 <div>
     <label>PAGES:
-      <input [(ngModel)]="book.noOfPages" placeholder="Number of pages">
+      <input [(ngModel)]="bookWithFullInfo.noOfPages" placeholder="Number of pages">
     </label>
 </div>
 <div>
     <label>ORIGINAL TITLE:
-      <input [(ngModel)]="book.originalTitle" placeholder="Original title">
+      <input [(ngModel)]="bookWithFullInfo.originalTitle" placeholder="Original title">
     </label>
 </div>
 <div>
     <label>ORIGIN:
-      <input [(ngModel)]="book.origin" placeholder="Origin">
+      <input [(ngModel)]="bookWithFullInfo.origin" placeholder="Origin">
     </label>
 </div>
 <h2>Authors</h2>
-<div>
-    <label>FORNAME:
-      <input [(ngModel)]="author.forname" placeholder="Forname">
+<li *ngFor="let author of bookWithFullInfo.authors">
+    <label>NAME:
+      <input [(ngModel)]="author.name" placeholder="Name">
     </label>
-    <label>SURNAME:
-        <input [(ngModel)]="author.surname" placeholder="Surname">
-      </label>
-</div>
+</li>
 <h2>Tags</h2>
-<div>
-    <label>VALUE:
-        <input [(ngModel)]="tag.value" placeholder="Value">
-      </label>
+<div *ngFor="let tag of bookWithFullInfo.tags">
+    <div>
+        <label>VALUE:
+            <input [(ngModel)]="tag.value" placeholder="Value">
+        </label>
+    </div>
 </div>
-<br/>
-<div><button (click)="printBook()">printuj ksionszke</button></div>
-<div><button (click)="printAuthor()">printuj autora</button></div>
-<div><button (click)="printTag()">printuj tag</button></div>
+<h2>Cover</h2>
+<div *ngIf="images">
+    <ul *ngFor="let image of images">
+        <img [src]="image">
+    </ul> 
+</div>
+<br/> 
+<div><button (click)="saveInDB()">save</button></div> 
