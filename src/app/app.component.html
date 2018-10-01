@@ -1,8 +1,60 @@
-<h1>{{title | uppercase}}</h1>
-<nav>
-    <a routerLink="/dashboard">Dashboard</a>
-    <a routerLink="/books">Books</a>
-    <a routerLink="/authors">Authors</a>
-    <a routerLink="/tags">Tags</a>
-</nav>
-<router-outlet></router-outlet>
+<div class="wrapper">
+    <!-- Top Container -->
+    <section>
+        <header class="showcase">
+            <h1>Book Management System</h1>
+        </header>
+    </section>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <ul>
+            <li>
+                <div class="main-nav-box">
+                    <input class="main-nav-txt" type="text" name="" placeholder="Dashboard" readonly>
+                    <a class="main-nav-btn" routerLink="/dashboard">
+                        <fa-icon [icon]="faBookReader" class="fa-2x"></fa-icon>
+                        <span class="main-nav-span"></span>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="main-nav-box">
+                    <input class="main-nav-txt" type="text" name="" placeholder="Books" readonly>
+                    <a class="main-nav-btn" routerLink="/books">
+                        <fa-icon [icon]="faBook" class="fa-2x"></fa-icon>
+                        <span class="main-nav-span"></span>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="main-nav-box">
+                    <input class="main-nav-txt" type="text" name="" placeholder="Authors" readonly>
+                    <a class="main-nav-btn" routerLink="/authors">
+                        <fa-icon [icon]="faPenNib" class="fa-2x"></fa-icon>
+                        <span class="main-nav-span"></span>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="main-nav-box">
+                    <input class="main-nav-txt" type="text" name="" placeholder="Tags" readonly>
+                    <a class="main-nav-btn" routerLink="/tags">
+                        <fa-icon [icon]="faTags" class="fa-2x"></fa-icon>
+                        <span class="main-nav-span"></span>
+                    </a>
+                </div>
+            </li>  
+        </ul>
+    </nav>
+
+    <!-- Router elements -->
+    <router-outlet></router-outlet>
+
+    <!-- Footer -->
+    <footer>
+        <p>Barti &copy; 2018</p>
+    </footer>
+
+    <!-- Wrapper ends -->
+</div>

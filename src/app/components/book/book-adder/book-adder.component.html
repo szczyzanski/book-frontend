@@ -34,14 +34,14 @@
 <h2>Authors</h2>
 <li *ngFor="let author of bookWithFullInfo.authors">
     <label>NAME:
-      <input [(ngModel)]="author.name" placeholder="Name">
+      <input [(ngModel)]="author.name" placeholder="Name"><button (click)="addAuthor()">+</button>
     </label>
 </li>
 <h2>Tags</h2>
 <div *ngFor="let tag of bookWithFullInfo.tags">
     <div>
         <label>VALUE:
-            <input [(ngModel)]="tag.value" placeholder="Value">
+            <input [(ngModel)]="tag.value" placeholder="Value"><button (click)="addTag()">+</button>
         </label>
     </div>
 </div>

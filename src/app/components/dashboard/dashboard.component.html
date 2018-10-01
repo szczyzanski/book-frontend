@@ -1,9 +1,129 @@
-<h3>Top Heroes</h3>
-<div class="grid grid-pad">
-  <a *ngFor="let book of books" class="col-1-4"
-      routerLink="/book/details/{{book.id}}">
-    <div class="module book">
-      <h4>{{book.title}}</h4>
-    </div>
-  </a>
+<!-- Dashboard Wrapper -->
+<div>
+
+    <!-- Adders -->
+    <header class="first-hdr">
+        <h1>Adders</h1>
+    </header>
+    <!-- Add boxes -->
+    <section class="add-boxes">
+        <div class="add-box-div">
+            <a routerLink="/books/add" class="add-box">
+                <p class="adders">Add Book</p>
+                <fa-icon [icon]="faBookOpen" class="fa-9x"></fa-icon>
+            </a>
+        </div>
+        <div class="add-box-div">
+            <a routerLink="/authors/add" class="add-box">
+                <p class="adders">Add Author</p>
+                <fa-icon [icon]="faPencilAlt" class="fa-9x"></fa-icon>
+            </a>
+        </div>
+        <div class="add-box-div">
+            <a href="/tags/add" class="add-box">
+                <p class="adders">Add Tag</p>
+                <fa-icon [icon]="faTag" class="fa-9x"></fa-icon>
+            </a>
+        </div>
+    </section>
+
+    <!-- Books -->
+    <header class="hdr">
+            <h1>Books</h1>
+    </header>
+    <!-- Book boxes -->
+    <section class="book-boxes">
+        <div class="book-box-div" *ngFor="let book of books">
+            <a routerLink="/book/details/{{book.book.id}}" class="book-box">
+                <img [src]="book.cover" alt="Brak okładki" (error)="imgSrcError(book.book.id)">
+                <div class="title-div"><input type="text" name="" placeholder="{{book.book.title}}" readonly></div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Authors -->
+    <header class="hdr">
+        <h1>Authors</h1>
+    </header>
+    <section class="authors-boxes">
+        <div class="author-box-div" *ngFor="let author of authors">
+            <a routerLink="/author/details/{{author.mainId}}" class="author-box">
+                <div class="author-forname"><p>{{author.forname}}</p></div>
+                <div class="author-surname"><p>{{author.surname}}</p></div>
+                <div class="author-power"><p>{{author.bookSetPower}}</p></div>
+                <fa-icon [icon]="faPenSquare" class="fa-4x"></fa-icon>
+            </a>
+        </div>
+    </section>
+
+    <!-- Tags -->
+    <header class="hdr">
+        <h1>Tags</h1>
+    </header>
+    <section class="tags-boxes">
+        <div class="tag-box-div">
+            <a href="#" class="tag-box">
+                <p>Tag Value</p>
+                <p>Hits: hit value</p>
+                <fa-icon [icon]="faHashtag" class="fa-2x"></fa-icon>
+            </a>
+        </div>
+        <div class="tag-box-div">
+                <a href="#" class="tag-box">
+                    <p>Tag Value</p>
+                    <p>Hits: hit value</p>
+                    <fa-icon [icon]="faHashtag" class="fa-2x"></fa-icon>
+                </a>
+        </div>
+        <div class="tag-box-div">
+            <a href="#" class="tag-box">
+                <p>Tag Value</p>
+                <p>Hits: hit value</p>
+                <fa-icon [icon]="faHashtag" class="fa-2x"></fa-icon>
+            </a>
+        </div>
+        <div class="tag-box-div">
+            <a href="#" class="tag-box">
+                <p>Tag Value</p>
+                <p>Hits: hit value</p>
+                <fa-icon [icon]="faHashtag" class="fa-2x"></fa-icon>
+            </a>
+        </div>
+        <div class="tag-box-div">
+            <a href="#" class="tag-box">
+                <p>Tag Value</p>
+                <p>Hits: hit value</p>
+                <fa-icon [icon]="faHashtag" class="fa-2x"></fa-icon>
+            </a>
+        </div>
+        <div class="tag-box-div">
+            <a href="#" class="tag-box">
+                <p>Tag Value</p>
+                <p>Hits: hit value</p>
+                <fa-icon [icon]="faHashtag" class="fa-2x"></fa-icon>
+            </a>
+        </div>
+        <div class="tag-box-div">
+            <a href="#" class="tag-box">
+                <p>Tag Value</p>
+                <p>Hits: hit value</p>
+                <fa-icon [icon]="faHashtag" class="fa-2x"></fa-icon>
+            </a>
+        </div>
+        <div class="tag-box-div">
+            <a href="#" class="tag-box">
+                <p>Tag Value</p>
+                <p>Hits: hit value</p>
+                <fa-icon [icon]="faHashtag" class="fa-2x"></fa-icon>
+            </a>
+        </div>
+        <div class="tag-box-div">
+            <a href="#" class="tag-box">
+                <p>Tag Value</p>
+                <p>Hits: hit value</p>
+                <fa-icon [icon]="faHashtag" class="fa-2x"></fa-icon>
+            </a>
+        </div>
+    </section>
+
 </div>
