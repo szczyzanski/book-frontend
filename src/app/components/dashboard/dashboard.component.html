@@ -61,69 +61,10 @@
         <h1>Tags</h1>
     </header>
     <section class="tags-boxes">
-        <div class="tag-box-div">
-            <a href="#" class="tag-box">
-                <p>Tag Value</p>
-                <p>Hits: hit value</p>
-                <fa-icon [icon]="faHashtag" class="fa-2x"></fa-icon>
-            </a>
-        </div>
-        <div class="tag-box-div">
-                <a href="#" class="tag-box">
-                    <p>Tag Value</p>
-                    <p>Hits: hit value</p>
-                    <fa-icon [icon]="faHashtag" class="fa-2x"></fa-icon>
-                </a>
-        </div>
-        <div class="tag-box-div">
-            <a href="#" class="tag-box">
-                <p>Tag Value</p>
-                <p>Hits: hit value</p>
-                <fa-icon [icon]="faHashtag" class="fa-2x"></fa-icon>
-            </a>
-        </div>
-        <div class="tag-box-div">
-            <a href="#" class="tag-box">
-                <p>Tag Value</p>
-                <p>Hits: hit value</p>
-                <fa-icon [icon]="faHashtag" class="fa-2x"></fa-icon>
-            </a>
-        </div>
-        <div class="tag-box-div">
-            <a href="#" class="tag-box">
-                <p>Tag Value</p>
-                <p>Hits: hit value</p>
-                <fa-icon [icon]="faHashtag" class="fa-2x"></fa-icon>
-            </a>
-        </div>
-        <div class="tag-box-div">
-            <a href="#" class="tag-box">
-                <p>Tag Value</p>
-                <p>Hits: hit value</p>
-                <fa-icon [icon]="faHashtag" class="fa-2x"></fa-icon>
-            </a>
-        </div>
-        <div class="tag-box-div">
-            <a href="#" class="tag-box">
-                <p>Tag Value</p>
-                <p>Hits: hit value</p>
-                <fa-icon [icon]="faHashtag" class="fa-2x"></fa-icon>
-            </a>
-        </div>
-        <div class="tag-box-div">
-            <a href="#" class="tag-box">
-                <p>Tag Value</p>
-                <p>Hits: hit value</p>
-                <fa-icon [icon]="faHashtag" class="fa-2x"></fa-icon>
-            </a>
-        </div>
-        <div class="tag-box-div">
-            <a href="#" class="tag-box">
-                <p>Tag Value</p>
-                <p>Hits: hit value</p>
-                <fa-icon [icon]="faHashtag" class="fa-2x"></fa-icon>
+        <div class="tag-box-div" *ngFor="let tag of tagLabels" >
+            <a href="#" class="tag-box" (mouseenter)="changeToValues(tag.index)" (mouseleave)="changeToPower(tag.index)">
+                <p [style.font-size]="tag.fontSize">#{{tag.value}}</p>
             </a>
         </div>
     </section>
-
 </div>

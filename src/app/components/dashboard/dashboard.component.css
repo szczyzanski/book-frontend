@@ -130,6 +130,7 @@
     align-items: center;
     transition: 1.2s;
     width: 100%;
+    border: none;
 }
 
 .title-div input::placeholder {
@@ -173,7 +174,7 @@
     height: 100%;
     font-size: 30px;
     align-items: baseline;
-    transform: translate(0, 15px);
+    transform: translate(0, -3);
 }
 
 .author-forname p {
@@ -183,7 +184,7 @@
 .author-surname  {
     margin-top: 0;
     height: 45px;
-    transform: translate(0, 10px);
+    transform: translate(0, -8px);
 }
 
 .author-surname p {
@@ -192,12 +193,17 @@
 }
 
 .author-power {
-    height: 30px;
+    transform: translate(0, -18px);
+    height: 35px;
 }
 
 .author-power p {
     margin: 0;
-    font-size: 30px;
+    font-size: 40px;
+}
+
+.author-box fa-icon {
+    transform: translate(0, -10px);
 }
 
 
@@ -236,8 +242,11 @@
 }
 
 .tag-box p {
-    font-size: 20px;
-    margin-bottom: 0;
+    /* font-size: 50px; */
+    margin: auto;
+    width: 95px;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .tag-box:hover {
